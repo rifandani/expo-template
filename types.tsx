@@ -3,6 +3,8 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
+import { ColorSchemeName } from 'react-native';
+
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
@@ -19,4 +21,8 @@ export type TabOneParamList = {
 
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
+};
+
+export type NavigationProps = {
+  colorScheme: ColorSchemeName;
 };

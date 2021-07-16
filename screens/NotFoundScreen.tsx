@@ -1,21 +1,8 @@
+import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
+// files
 import { RootStackParamList } from '../types';
-
-export default function NotFoundScreen({
-  navigation,
-}: StackScreenProps<RootStackParamList, 'NotFound'>) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen doesn't exist.</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Root')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -38,3 +25,19 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+export default function NotFoundScreen({
+  navigation,
+}: StackScreenProps<RootStackParamList, 'NotFound'>): JSX.Element {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>This screen does not exist.</Text>
+
+      <TouchableOpacity
+        onPress={() => navigation.replace('Root')}
+        style={styles.link}>
+        <Text style={styles.linkText}>Go to home screen!</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
