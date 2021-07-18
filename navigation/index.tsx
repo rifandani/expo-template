@@ -3,14 +3,14 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-
+// files
 import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import NotFoundScreen from '../screens/NotFoundScreen';
@@ -31,8 +31,8 @@ export default function Navigation({
         <Stack.Screen name="Root" component={BottomTabNavigator} />
         <Stack.Screen
           name="NotFound"
-          component={NotFoundScreen}
           options={{ title: 'Oops!' }}
+          component={NotFoundScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -2,12 +2,14 @@
  * Learn more about deep linking with React Navigation
  * https://reactnavigation.org/docs/deep-linking
  * https://reactnavigation.org/docs/configuring-links
+ * https://docs.expo.io/guides/linking/
  */
 
-import Linking from 'expo-linking';
+import { makeUrl } from 'expo-linking';
+import { LinkingOptions } from '@react-navigation/native';
 
 export default {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [makeUrl('/')],
   config: {
     screens: {
       Root: {
@@ -27,4 +29,4 @@ export default {
       NotFound: '*',
     },
   },
-};
+} as LinkingOptions;

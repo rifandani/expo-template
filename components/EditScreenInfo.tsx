@@ -2,9 +2,9 @@ import React from 'react';
 import WebBrowser from 'expo-web-browser';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 // files
-import MonoText from './StyledText';
+import AmaranteText from './StyledText';
 import Colors from '../constants/Colors';
-import { Text, View } from './Themed';
+import { ThemedText, ThemedView } from './Themed';
 
 const styles = StyleSheet.create({
   getStartedContainer: {
@@ -36,51 +36,53 @@ const styles = StyleSheet.create({
   },
 });
 
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet',
-  );
-}
-
-export default function EditScreenInfo({
-  path,
-}: {
+type Props = {
   path: string;
-}): JSX.Element {
+};
+
+export default function EditScreenInfo({ path }: Props): JSX.Element {
+  async function handleHelpPress(): Promise<void> {
+    await WebBrowser.openBrowserAsync(
+      'https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet',
+    );
+  }
+
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
+    <ThemedView>
+      <ThemedView style={styles.getStartedContainer}>
+        <ThemedText
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
           Open up the code for this screen:
-        </Text>
+        </ThemedText>
 
-        <View
+        <ThemedView
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           darkColor="rgba(255,255,255,0.05)"
           lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
-        </View>
+          <AmaranteText>{path}</AmaranteText>
+        </ThemedView>
 
-        <Text
+        <ThemedText
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
           Change any of the text, save the file, and your app will automatically
           update.
-        </Text>
-      </View>
+        </ThemedText>
+      </ThemedView>
 
-      <View style={styles.helpContainer}>
+      <ThemedView style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+          <ThemedText
+            style={styles.helpLinkText}
+            lightColor={Colors.light.tint}>
             Tap here if your app does not automatically update after making
-            changes
-          </Text>
+            changessssss
+          </ThemedText>
         </TouchableOpacity>
-      </View>
-    </View>
+      </ThemedView>
+    </ThemedView>
   );
 }

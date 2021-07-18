@@ -1,12 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /**
  * Learn more about Light and Dark modes:
  * https://docs.expo.io/guides/color-schemes/
  */
 
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Text as DefaultText, View as DefaultView } from 'react-native';
-
+import { Text, View } from 'react-native';
+// files
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 
@@ -28,22 +28,22 @@ type ThemeProps = {
   darkColor?: string;
 };
 
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
+export type TextProps = ThemeProps & Text['props'];
+export type ViewProps = ThemeProps & View['props'];
 
-export function Text(props: TextProps): JSX.Element {
+export function ThemedText(props: TextProps): JSX.Element {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
+  return <Text style={[{ color }, style]} {...otherProps} />;
 }
 
-export function View(props: ViewProps): JSX.Element {
+export function ThemedView(props: ViewProps): JSX.Element {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
     'background',
   );
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
 }
