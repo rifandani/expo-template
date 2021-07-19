@@ -1,6 +1,12 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
+  "name": "expo-ts",
+  "description": "Expo typescript template",
+  "author": {
+    "name": "Tri Rizeki Rifandani",
+    "email": "tri.rifandani@gmail.com"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
