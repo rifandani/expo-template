@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 // files
 import EditScreenInfo from '../components/EditScreenInfo';
-import { ThemedText, ThemedView } from '../components/Themed';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,16 +22,12 @@ const styles = StyleSheet.create({
 
 export default function TabTwoScreen(): JSX.Element {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText style={styles.title}>Tab Two</ThemedText>
+    <View style={styles.container}>
+      <Text style={styles.title}>Tab Two</Text>
 
-      <ThemedView
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <View style={styles.separator} />
 
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-    </ThemedView>
+      <EditScreenInfo path="/screens" />
+    </View>
   );
 }

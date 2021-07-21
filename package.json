@@ -3,6 +3,7 @@
   "private": true,
   "name": "expo-ts",
   "description": "Expo typescript template",
+  "version": "1.0.0",
   "author": {
     "name": "Tri Rizeki Rifandani",
     "email": "tri.rifandani@gmail.com"
@@ -20,7 +21,7 @@
     "prepare": "husky install",
     "cm": "cz",
     "cm:signed": "cz -S",
-    "release": "standard-version",
+    "release:first": "standard-version --first-release",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major"
@@ -45,10 +46,12 @@
   "dependencies": {
     "@expo-google-fonts/amarante": "^0.2.0",
     "@expo/vector-icons": "^12.0.0",
+    "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "5.11.2",
     "@react-navigation/native": "~5.8.10",
     "@react-navigation/stack": "~5.12.8",
+    "@reduxjs/toolkit": "^1.6.1",
     "expo": "~42.0.1",
     "expo-app-loading": "^1.1.2",
     "expo-asset": "~8.3.2",
@@ -65,12 +68,15 @@
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-redux": "^7.2.4",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "@types/react-redux": "^7.1.18",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "commitizen": "^4.2.4",

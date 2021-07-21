@@ -38,6 +38,8 @@
         "allow": ["info", "warn", "error"]
       }
     ],
+    "no-plusplus": ["off", { "allowForLoopAfterthoughts": true }],
+    "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
     "no-shadow": "off",
     "react/prop-types": 0,

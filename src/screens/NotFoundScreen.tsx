@@ -2,7 +2,7 @@ import React from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // files
-import { RootStackParamList } from '../types';
+import { RootStackParamList } from '../types/navigation';
 
 const styles = StyleSheet.create({
   container: {
