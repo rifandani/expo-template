@@ -1,13 +1,16 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 // files
+import AmaranteText from '../components/AmaranteText';
+import logCurrentStorage from '../utils/logCurrentStorage';
+import Colors from '../constants/Colors';
+import { ThemedView } from '../components/Themed';
 import { useAppDispatch, useAppSelector } from '../lib/redux/store';
 import {
   counterSelector,
   decrement,
   increment,
 } from '../lib/redux/slices/counter';
-import logCurrentStorage from '../utils/logCurrentStorage';
 
 const styles = StyleSheet.create({
   container: {
@@ -41,8 +44,13 @@ export default function ReduxScreen(): JSX.Element {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Counter</Text>
+    <ThemedView style={styles.container}>
+      <AmaranteText
+        style={styles.title}
+        lightColor={Colors.light.text}
+        darkColor={Colors.dark.text}>
+        Counter
+      </AmaranteText>
 
       <View style={styles.separator} />
 
@@ -65,6 +73,6 @@ export default function ReduxScreen(): JSX.Element {
       <Pressable onPress={onDecrement}>
         {({ pressed }) => <Text>{pressed ? 'Pressed!' : 'Reset'}</Text>}
       </Pressable>
-    </View>
+    </ThemedView>
   );
 }
