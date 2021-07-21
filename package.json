@@ -3,7 +3,7 @@
   "private": true,
   "name": "expo-ts",
   "description": "Expo typescript template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Tri Rizeki Rifandani",
     "email": "tri.rifandani@gmail.com"
@@ -21,6 +21,7 @@
     "prepare": "husky install",
     "cm": "cz",
     "cm:signed": "cz -S",
+    "release": "standard-version",
     "release:first": "standard-version --first-release",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
