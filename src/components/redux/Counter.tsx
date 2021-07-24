@@ -33,7 +33,7 @@ const Counter = (): JSX.Element => {
 
   return (
     <View>
-      <Text>{count}</Text>
+      <Text testID="countText">{count}</Text>
 
       <View style={styles.separator} />
 

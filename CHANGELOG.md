@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.2.0](https://github.com/rifandani/expo-template/compare/v1.1.0...v1.2.0) (2021-07-21)
 
-
 ### Features
 
-* **query:** add react-query, axios ([4e34d42](https://github.com/rifandani/expo-template/commit/4e34d429636dcbc57a3bf76bb1b472998f0b5d6b))
+- **query:** add react-query, axios ([4e34d42](https://github.com/rifandani/expo-template/commit/4e34d429636dcbc57a3bf76bb1b472998f0b5d6b))
 
 ## [1.1.0](https://github.com/rifandani/expo-template/compare/v1.0.0...v1.1.0) (2021-07-21)
 
