@@ -1,16 +1,10 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 // files
-import AmaranteText from '../components/AmaranteText';
-import logCurrentStorage from '../utils/logCurrentStorage';
+import AmaranteText from '../components/common/AmaranteText';
+import Counter from '../components/redux/Counter';
 import Colors from '../constants/Colors';
-import { ThemedView } from '../components/Themed';
-import { useAppDispatch, useAppSelector } from '../lib/redux/store';
-import {
-  counterSelector,
-  decrement,
-  increment,
-} from '../lib/redux/slices/counter';
+import { ThemedView } from '../components/common/Themed';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,19 +24,6 @@ const styles = StyleSheet.create({
 });
 
 export default function ReduxScreen(): JSX.Element {
-  const { count } = useAppSelector(counterSelector);
-  const dispatch = useAppDispatch();
-
-  const onIncrement = () => {
-    dispatch(increment());
-    logCurrentStorage();
-  };
-
-  const onDecrement = () => {
-    dispatch(decrement());
-    logCurrentStorage();
-  };
-
   return (
     <ThemedView style={styles.container}>
       <AmaranteText
@@ -54,25 +35,7 @@ export default function ReduxScreen(): JSX.Element {
 
       <View style={styles.separator} />
 
-      <Text>{count}</Text>
-
-      <View style={styles.separator} />
-
-      <Pressable onPress={onIncrement}>
-        {({ pressed }) => <Text>{pressed ? 'Pressed!' : 'Increment'}</Text>}
-      </Pressable>
-
-      <View style={styles.separator} />
-
-      <Pressable onPress={onDecrement}>
-        {({ pressed }) => <Text>{pressed ? 'Pressed!' : 'Decrement'}</Text>}
-      </Pressable>
-
-      <View style={styles.separator} />
-
-      <Pressable onPress={onDecrement}>
-        {({ pressed }) => <Text>{pressed ? 'Pressed!' : 'Reset'}</Text>}
-      </Pressable>
+      <Counter />
     </ThemedView>
   );
 }

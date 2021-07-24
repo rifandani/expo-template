@@ -1,9 +1,9 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 // files
-import AmaranteText from '../components/AmaranteText';
-import useGetUsers from '../hooks/useGetUsers';
-import { ThemedView } from '../components/Themed';
+import AmaranteText from '../components/common/AmaranteText';
+import UserList from '../components/rquery/UserList';
+import { ThemedView } from '../components/common/Themed';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,25 +23,13 @@ const styles = StyleSheet.create({
 });
 
 export default function RQueryScreen(): JSX.Element {
-  const { isLoading, data, error } = useGetUsers();
-
   return (
     <ThemedView style={styles.container}>
       <AmaranteText style={styles.title}>useQuery</AmaranteText>
 
       <View style={styles.separator} />
 
-      {isLoading ? <Text>Loading...</Text> : null}
-      {error ? <Text>{error.message}</Text> : null}
-      {data ? (
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <Text style={{ marginVertical: 10 }}>{item.name}</Text>
-          )}
-          keyExtractor={item => item.id.toString()}
-        />
-      ) : null}
+      <UserList />
     </ThemedView>
   );
 }

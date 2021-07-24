@@ -8,12 +8,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // files
 import ReduxNavigator from './ReduxTabNavigator';
 import RQueryNavigator from './RQueryTabNavigator';
-import TabBarIcon from '../components/TabBarIcon';
+import TabBarIcon from '../components/common/TabBarIcon';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { BottomTabParamList } from '../types/navigation';
 
-const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+const { Navigator, Screen } = createBottomTabNavigator<BottomTabParamList>();
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
@@ -21,11 +21,11 @@ export default function BottomTabNavigator(): JSX.Element {
   const colorScheme = useColorScheme();
 
   return (
-    <BottomTab.Navigator
+    <Navigator
       initialRouteName="Redux"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       {/* redux screen */}
-      <BottomTab.Screen
+      <Screen
         name="Redux"
         component={ReduxNavigator}
         options={{
@@ -36,7 +36,7 @@ export default function BottomTabNavigator(): JSX.Element {
       />
 
       {/* TODO: react-query screen */}
-      <BottomTab.Screen
+      <Screen
         name="RQuery"
         component={RQueryNavigator}
         options={{
@@ -45,6 +45,6 @@ export default function BottomTabNavigator(): JSX.Element {
           ),
         }}
       />
-    </BottomTab.Navigator>
+    </Navigator>
   );
 }
